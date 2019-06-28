@@ -54,6 +54,10 @@ class LaravelChart {
                 $query->with($this->options['relationship_name']);
             }
 
+            if(isset($this->options['where_field'])){
+                $query->where($this->options['where_field'],$this->options['where_value']);
+            }
+
             $collection = $query->get();
 
             if ($this->options['report_type'] != 'group_by_relationship') {
